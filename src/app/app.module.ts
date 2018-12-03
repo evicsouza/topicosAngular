@@ -7,21 +7,21 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { ListarUsuariosComponent } from './listar-usuarios/listar-usuarios.component';
+import { AnimalComponent } from './animal/animal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    ListarUsuariosComponent,
+    AnimalComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
-      { path: 'cadastro', component: CadastroComponent },
-      { path: 'listar-usuarios', component: ListarUsuariosComponent }
+      { path: 'usuario', component: CadastroComponent },
+      { path: 'animal', component: AnimalComponent }
     ])
   ],
   providers: [AngularFireDatabase],

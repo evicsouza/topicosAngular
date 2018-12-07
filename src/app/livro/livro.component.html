@@ -1,0 +1,65 @@
+<div class="livroForm">
+  <h4 align="center">
+    <p>Insira os dados do livro</p>
+  </h4>
+  <p>
+    <label class="t">Título</label>
+    <input id="last_name" type="text" class="validate" [(ngModel)]="livro.titulo">
+  </p>
+  <p>
+    <label class="t">Autor</label>
+    <input id="last_name" type="text" class="validate" [(ngModel)]="livro.autor">
+  </p>
+  <div align="right" class="button-container">
+    <a class="waves-effect waves-light btn" (click)="salvar()">SALVAR</a>
+  </div>
+
+  <div *ngIf="carregando" class="progress">
+      <div class="indeterminate"></div>
+    </div>
+
+  <h6 align="center"*ngIf="!livros && !carregando">Não há livros cadastrados</h6>
+
+  <div *ngIf="livros">
+    <h6>Livros cadastrados</h6>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let livro of livros">
+          <td>
+            <span *ngIf="!livro.editando">{{livro.titulo}}</span>
+            <input *ngIf="livro.editando" type="text" [(ngModel)]="livro.titulo" name="titulo-{{livro.uid}}">
+          </td>
+          <td>
+            <span *ngIf="!livro.editando">{{livro.titulo}}</span>
+            <input *ngIf="livro.editando" type="text" [(ngModel)]="livro.titulo" name="autor-{{livro.uid}}">
+          </td>
+          <td *ngIf="!livro.editando" class="remove-parent">
+            <a class="edit-parent" (click)="editar(livro)" href="javascript:void(0);">
+              <i class="material-icons">edit</i>
+            </a>
+            <a (click)="remover(livro.uid)" href="javascript:void(0);">
+              <i class="material-icons">delete</i>
+            </a>
+          </td>
+          <td *ngIf="livro.editando" class="remove-parent">
+            <a class="confirm-parent" (click)="confirmEdit(livro)" href="javascript:void(0);">
+              <i class="material-icons">check</i>
+            </a>
+            <a (click)="cancelEdit(livro)" href="javascript:void(0);">
+              <i class="material-icons">close</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

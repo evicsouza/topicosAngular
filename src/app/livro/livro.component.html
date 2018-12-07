@@ -37,8 +37,8 @@
             <input *ngIf="livro.editando" type="text" [(ngModel)]="livro.titulo" name="titulo-{{livro.uid}}">
           </td>
           <td>
-            <span *ngIf="!livro.editando">{{livro.titulo}}</span>
-            <input *ngIf="livro.editando" type="text" [(ngModel)]="livro.titulo" name="autor-{{livro.uid}}">
+            <span *ngIf="!livro.editando">{{livro.autor}}</span>
+            <input *ngIf="livro.editando" type="text" [(ngModel)]="livro.autor" name="autor-{{livro.uid}}">
           </td>
           <td *ngIf="!livro.editando" class="remove-parent">
             <a class="edit-parent" (click)="editar(livro)" href="javascript:void(0);">

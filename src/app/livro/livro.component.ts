@@ -54,7 +54,7 @@ export class LivroComponent implements OnInit {
   }
 
   confirmEdit(livro) {
-    this.dbService.atualizar('livro', livro.uid, { nome: livro.nome, idade: livro.idade })
+    this.dbService.atualizar('livro', livro.uid, { titulo: livro.titulo, autor: livro.autor })
       .then(() => {
         alert('Livro atualizado com sucesso');
 
